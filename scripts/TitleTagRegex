@@ -4,4 +4,4 @@
 #
 
 cd `dirname $0`/../bin/
-wget -qO - $1 | java -Xss16M TitleTagRegex
+wget --no-check-certificate -qO - $1 | java -Xss16M TitleTagRegex
