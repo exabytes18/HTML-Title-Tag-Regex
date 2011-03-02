@@ -19,9 +19,9 @@ public class TitleTagRegex {
 
 	public static void main(String[] args) {
 		/*
-		 * Note: java seems to correctly choose the most specific tag for the
+		 * Note: java seems to correctly choose the most specific rule for the
 		 * occasion. Notice that the first 3 rules all begin with the same
-		 * characters, yet it's choose the most specific as soon as it can
+		 * characters, yet it chooses the most specific as soon as it can
 		 * logically deduce which rule applies.
 		 */
 		String cdata = "(?:\\<!\\[CDATA\\[.*?\\]\\]>)"; // match cdata
