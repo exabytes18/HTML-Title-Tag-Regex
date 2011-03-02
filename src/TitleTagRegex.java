@@ -18,11 +18,13 @@ public class TitleTagRegex {
 	}
 
 	public static void main(String[] args) {
-		String cre = "(?:\\<!.*?>)"; // match any comment or markup declaration
+		String cdata = "(?:\\<!\\[CDATA\\[.*?\\]\\]>)"; // match cdata
+		String cre = "(?:\\<!--.*?--[\\s]*>)"; // match any comment
+		String mdcl = "(?:\\<!.*?>)"; // match markup declaration
 		String tre = "(?:\\<[^!].*?>)"; // match any tag
 		String slit = "(?:[^<]*)"; // match any string literal
 
-		String nonComment = "(?:" + cre + "|" + tre + "|" + slit + ")";
+		String nonComment = "(?:" + cdata + "|" + cre + "|" + mdcl + "|" + tre + "|" + slit + ")";
 		String html = "(?:" + nonComment + ")*?<title>(.*?)</title>(?:" + nonComment + ")*";
 		String entirety = "\\A" + html + "\\z";
 
