@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class TitleTagRegex {
 
-	private static String getFileFromStdIn() throws IOException {
+	private static String getHTMLFromStdIn() throws IOException {
 		StringBuilder sb = new StringBuilder();
 		InputStreamReader stream = new InputStreamReader(System.in);
 		BufferedReader in = new BufferedReader(stream);
@@ -36,10 +36,8 @@ public class TitleTagRegex {
 
 		int flags = Pattern.DOTALL | Pattern.CASE_INSENSITIVE;
 		Pattern p = Pattern.compile(entirety, flags);
-		String input;
 		try {
-			input = getFileFromStdIn();
-			Matcher m = p.matcher(input);
+			Matcher m = p.matcher(getHTMLFromStdIn());
 			if (m.find()) {
 				System.out.println(m.group(1));
 			}
